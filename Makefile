@@ -4,15 +4,15 @@ INPUT_FILE ?= ex1.txt
 WORKERS    ?= 4
 
 clean:
-	rm -f out/WordCount.jar
+	rm -f out/WordCountPARCS.jar
 
-out/WordCount.jar: out/parcs.jar src/WordCountPARCS.java
+out/WordCountPARCS.jar: out/parcs.jar src/WordCountPARCS.java
 	@mkdir -p temp
 	@javac -cp out/parcs.jar -d temp src/WordCountPARCS.java
-	@jar cf out/WordCount.jar -C temp .
+	@jar cf out/WordCountPARCS.jar -C temp .
 	@rm -rf temp/
 
-build: out/WordCount.jar
+build: out/WordCountPARCS.jar
 
-run: build
-    @cd out && java -cp 'parcs.jar:WordCount.jar' src.WordCountPARCS $(INPUT_FILE) $(WORKERS)
+run: out/WordCountPARCS.jar
+    @cd out && java -cp 'parcs.jar:WordCountPARCS.jar' WordCountPARCS $(INPUT_FILE) $(WORKERS)
