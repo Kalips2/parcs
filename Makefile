@@ -15,4 +15,5 @@ out/WordCountPARCS.jar: out/parcs.jar src/WordCountPARCS.java
 build: out/WordCountPARCS.jar
 
 run: out/WordCountPARCS.jar
-    @cd out && java -cp 'parcs.jar:WordCountPARCS.jar' WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.log
+	@echo ">> Launching WordCountPARCS with INPUT=$(INPUT), WORKERS=$(WORKERS)"
+    @cd out && java -cp 'parcs.jar:WordCountPARCS.jar' WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.log 2>1&1 &
