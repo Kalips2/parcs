@@ -22,7 +22,7 @@ public class WordCountPARCS implements AM {
 
   static void stopDist() {
     long distEnd = System.nanoTime();
-    System.err.printf("Distribution time: %.3f ms%n", (distEnd - distStart) / 1e6);
+    System.out.printf("Distribution time: %.3f ms%n", (distEnd - distStart) / 1e6);
   }
 
   static void startColl() {
@@ -31,11 +31,10 @@ public class WordCountPARCS implements AM {
 
   static void stopColl() {
     long collEnd = System.nanoTime();
-    System.err.printf("Collection+Merge time: %.3f ms%n", (collEnd - collStart) / 1e6);
+    System.out.printf("Collection+Merge time: %.3f ms%n", (collEnd - collStart) / 1e6);
   }
 
   public static void main(String[] args) throws Exception {
-    System.out.println("Task is started");
     if (args.length != 2) {
       System.err.println("WordCountPARCS <inputFile> <numWorkers>");
       System.exit(1);
@@ -44,7 +43,6 @@ public class WordCountPARCS implements AM {
     int k = Integer.parseInt(args[1]);
 
     String text = Files.readString(Paths.get(inputFile), StandardCharsets.UTF_8);
-    System.out.println("Text size is " + text.length());
     String[] lines = text.split("\\r?\\n");
     int chunkSize = (lines.length + k - 1) / k;
 
