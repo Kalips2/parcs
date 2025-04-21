@@ -1,7 +1,7 @@
 all: run
 
-INPUT_FILE ?= ex1.txt
-WORKERS    ?= 4
+INPUT_FILE ?= input.txt
+WORKERS    ?= 1
 
 clean:
 	rm -f out/WordCountPARCS.jar
