@@ -23,6 +23,7 @@ public class WordCountPARCS implements AM {
   static void stopDist() {
     long distEnd = System.nanoTime();
     System.out.printf("Distribution time: %.3f ms%n", (distEnd - distStart) / 1e6);
+    System.out.flush();
   }
 
   static void startColl() {
@@ -32,11 +33,12 @@ public class WordCountPARCS implements AM {
   static void stopColl() {
     long collEnd = System.nanoTime();
     System.out.printf("Collection+Merge time: %.3f ms%n", (collEnd - collStart) / 1e6);
+    System.out.flush();
   }
 
   public static void main(String[] args) throws Exception {
     if (args.length != 2) {
-      System.err.println("WordCountPARCS <inputFile> <numWorkers>");
+      System.out.println("WordCountPARCS <inputFile> <numWorkers>");
       System.exit(1);
     }
     String inputFile = args[0];
