@@ -2,6 +2,7 @@ all: run
 
 INPUT_FILE ?= input.txt
 WORKERS    ?= 1
+JAVA_OPTS := -Xmx8g
 
 clean:
 	rm -f out/WordCountPARCS.jar
@@ -16,6 +17,6 @@ build: out/WordCountPARCS.jar
 
 run: out/WordCountPARCS.jar
 	@echo ">> Launching WordCountPARCS with INPUT_FILE=$(INPUT_FILE), WORKERS=$(WORKERS)"
-	@cd out && java -cp 'parcs.jar:WordCountPARCS.jar' src.WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.txt 2>&1 || true
+	@cd out && java $(JAVA_OPTS) -cp 'parcs.jar:WordCountPARCS.jar' src.WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.txt 2>&1 || true
 	@echo ">> Logs (full content of run.txt):"
 	@cat run.txt
