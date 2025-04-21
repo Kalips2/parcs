@@ -49,7 +49,7 @@ public class WordCountPARCS implements AM {
     int chunkSize = (lines.length + k - 1) / k;
 
     task curtask = new task();
-    curtask.addJarFile("WordCount.jar");
+    curtask.addJarFile("WordCountPARCS.jar");
     AMInfo info = new AMInfo(curtask, null);
 
     channel[] channels = new channel[k];
@@ -58,7 +58,7 @@ public class WordCountPARCS implements AM {
     for (int i = 0; i < k; i++) {
       point p = info.createPoint();
       channel c = p.createChannel();
-      p.execute("WordCount");
+      p.execute("src.WordCountPARCS");
 
       int start = i * chunkSize;
       int end = Math.min(start + chunkSize, lines.length);
