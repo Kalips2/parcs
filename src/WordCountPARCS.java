@@ -58,7 +58,7 @@ public class WordCountPARCS implements AM {
     for (int i = 0; i < k; i++) {
       point p = info.createPoint();
       channel c = p.createChannel();
-      p.execute("WordCountPARCS");
+      p.execute("src.WordCountPARCS");
 
       int start = i * chunkSize;
       int end = Math.min(start + chunkSize, lines.length);
