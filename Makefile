@@ -15,4 +15,4 @@ out/WordCountPARCS.jar: out/parcs.jar src/WordCountPARCS.java
 build: out/WordCountPARCS.jar
 
 run: out/WordCountPARCS.jar
-    @cd out && java -cp 'parcs.jar:WordCountPARCS.jar' WordCountPARCS $(INPUT_FILE) $(WORKERS)
+    @cd out && java -cp 'parcs.jar:WordCountPARCS.jar' WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.log

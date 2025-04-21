@@ -35,6 +35,7 @@ public class WordCountPARCS implements AM {
   }
 
   public static void main(String[] args) throws Exception {
+    System.out.println("Task is started");
     if (args.length != 2) {
       System.err.println("WordCountPARCS <inputFile> <numWorkers>");
       System.exit(1);
@@ -43,6 +44,7 @@ public class WordCountPARCS implements AM {
     int k = Integer.parseInt(args[1]);
 
     String text = Files.readString(Paths.get(inputFile), StandardCharsets.UTF_8);
+    System.out.println("Text size is " + text.length());
     String[] lines = text.split("\\r?\\n");
     int chunkSize = (lines.length + k - 1) / k;
 
