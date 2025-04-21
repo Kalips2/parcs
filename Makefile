@@ -16,4 +16,5 @@ build: out/WordCountPARCS.jar
 
 run: out/WordCountPARCS.jar
 	@echo ">> Launching WordCountPARCS with INPUT_FILE=$(INPUT_FILE), WORKERS=$(WORKERS)"
-	@cd out && java -cp 'parcs.jar:WordCountPARCS.jar' src.WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.txt 2>&1
+	@cd out && java -cp 'parcs.jar:WordCountPARCS.jar' src.WordCountPARCS $(INPUT_FILE) $(WORKERS) > ../run.txt 2>&1 || true
+	@echo ">> tail run.txt:"; tail -n20 run.txt
