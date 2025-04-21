@@ -82,9 +82,9 @@ public class WordCountPARCS implements AM {
     }
     stopColl();
 
-    globalCounts.forEach((word, cnt) ->
-        System.out.printf("%s: %d%n", word, cnt)
-    );
+//    globalCounts.forEach((word, cnt) ->
+//        System.out.printf("%s: %d%n", word, cnt)
+//    );
 
     curtask.end();
   }
