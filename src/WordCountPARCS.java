@@ -64,9 +64,9 @@ public class WordCountPARCS implements AM {
       }
     }
 
-//    globalCounts.forEach((word, cnt) ->
-//        System.out.printf("%s: %d%n", word, cnt)
-//    );
+    globalCounts.forEach((word, cnt) ->
+        System.out.printf("%s: %d%n", word, cnt)
+    );
 
     // Завершуємо Task, воркери будуть зупинені
     curtask.end();
